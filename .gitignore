@@ -169,3 +169,11 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# ☆★☆★☆★☆★☆★ 중요 반드시 제거 (악성 파일 관련) ☆★☆★☆★☆★☆★
+value/data/*
+value/csv/*
+!value/data/.gitkeep
+!value/csv/.gitkeep
+# ☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★
