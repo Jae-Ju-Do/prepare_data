@@ -1,5 +1,5 @@
-from get_filename import GetFilename
-from get_tags_in_filename import GetTagsInFilename
+from function.get_filename import GetFilename
+from function.get_tags_in_filename import GetTagsInFilename
 import os, json
 
 # malware bazaar에서 zip 파일 다운로드 (크롤링)
