@@ -9,7 +9,7 @@ if __name__ == '__main__':
     result_path = r"../../../exe/final/virus-total-result.csv"
     input_data = pd.read_csv(input_path)
 
-    print(f"------데이터 개수 : {len(result_path)}------- ")
+    print(f"------데이터 개수 : {len(input_data)}------- ")
     num = 0
     for index, row in input_data.iterrows():
         file_name = row["file_name"]
@@ -20,6 +20,8 @@ if __name__ == '__main__':
         print(f"crawl result : {crawl_result}")
 
         if crawl_result is None:
+            input_data.at[index, "type"] = "None"
+            input_data.to_csv(input_path, index=False)
             continue
 
         input_data = input_data.drop(index)
