@@ -1,6 +1,7 @@
 import time
 
 from selenium import webdriver
+from selenium.common import NoSuchElementException
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
@@ -40,6 +41,15 @@ def crawl(sha256):
         if threat_categories:
             categories = [category.text for category in threat_categories]
         return categories
+    except NoSuchElementException as e:
+        print(e)
+        try:
+            captcha = driver.find_element(By.ID, "captchaDialogContainer")
+            print("로봇이 아닙니다 감지")
+            return "Notfound"
+        except NoSuchElementException:
+            print("Threat Category 존재하지 않음.")
+            return "no_tag"
     except Exception as e:
         print(e)
     finally:
